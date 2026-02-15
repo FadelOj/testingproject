@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "../index.css";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 
 import Header from "@/components/header";
 import Providers from "@/components/providers";
@@ -18,9 +18,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const fraunces = Fraunces({
+  variable: "--font-display",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "testingproject",
-  description: "testingproject",
+  title: "Gold Profit",
+  description: "Track gold trades with FX-aware profit insights.",
 };
 
 export default function RootLayout({
@@ -30,7 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased`}
+      >
         <ClerkProvider>
           <Providers>
             <div className="grid grid-rows-[auto_1fr] h-svh">

@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "testingproject",
-    short_name: "testingproject",
-    description: "my pwa app",
-    start_url: "/new",
+    name: "Gold Profit",
+    short_name: "Gold Profit",
+    description: "Track gold trades with FX-aware profit insights.",
+    start_url: "/dashboard",
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#000000",
