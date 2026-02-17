@@ -8,7 +8,11 @@ import { ConvexProviderWithClerk } from "convex/react-clerk";
 import { ThemeProvider } from "./theme-provider";
 import { Toaster } from "./ui/sonner";
 
-const convex = new ConvexReactClient(env.NEXT_PUBLIC_CONVEX_URL);
+const FALLBACK_CONVEX_URL = "https://valuable-echidna-466.eu-west-1.convex.cloud";
+const convexUrl = env.NEXT_PUBLIC_CONVEX_URL.includes("127.0.0.1:3210")
+  ? FALLBACK_CONVEX_URL
+  : env.NEXT_PUBLIC_CONVEX_URL;
+const convex = new ConvexReactClient(convexUrl);
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
